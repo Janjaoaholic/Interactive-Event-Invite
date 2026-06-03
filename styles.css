@@ -1,0 +1,284 @@
+/* ============================================
+   GIF GALA — Disney Magic Theme
+   styles.css
+   ============================================ */
+
+/* ── CSS Variables — our Disney color palette ── */
+:root {
+  --gold:        #FFD700;   /* Disney magic gold */
+  --gold-dark:   #C9972B;   /* darker gold for hover effects */
+  --midnight:    #0A0A2E;   /* deep midnight blue — like a Disney night sky */
+  --royal:       #1A1A6E;   /* royal blue — castle walls */
+  --purple:      #6A0DAD;   /* enchanted purple */
+  --pink:        #FF69B4;   /* fairy pink */
+  --white:       #FFFDF4;   /* warm white — like parchment */
+}
+
+/* ── Reset — remove default browser spacing ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding won't push elements out of size */
+}
+
+/* ── Body — the night sky background ── */
+body {
+  /* layered starry gradient background */
+  background: radial-gradient(ellipse at top, #1A1A6E 0%, #0A0A2E 60%, #000010 100%);
+  background-size: cover;       /* ensures background fills the full area */
+  background-position: center;  /* keeps background centered */
+  background-repeat: no-repeat; /* prevents tiling */
+  background-attachment: fixed; /* background stays put when scrolling */
+  min-height: 100vh;            /* fill the full screen height */
+  font-family: 'Lora', serif;   /* elegant Disney-style body font */
+  color: var(--white);          /* default text color */
+  overflow-x: hidden;           /* prevent horizontal scrolling */
+  transition: background-image 0.5s ease; /* smooth fade when GIF appears */
+}
+
+/* ── Sparkle stars in the background ── */
+body::before {
+  content: '✦ ✧ ★ ✦ ✧ ✶ ✦ ✧ ★ ✦ ✧ ✶ ✦ ✧ ★ ✦ ✧ ✦ ✧ ★ ✦ ✶ ✦ ✧ ★ ✦ ✧ ✶';
+  position: fixed;              /* stays in place as you scroll */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  font-size: 12px;
+  color: rgba(255, 215, 0, 0.15); /* very faint gold stars */
+  line-height: 2.5;
+  letter-spacing: 18px;
+  pointer-events: none;         /* stars don't block clicks */
+  z-index: 0;                   /* sits behind everything */
+  word-break: break-all;
+}
+
+/* ── Main wrapper — centers all content ── */
+.page-wrapper {
+  position: relative;
+  z-index: 1;                   /* sits above the star background */
+  max-width: 680px;             /* max width for desktop */
+  margin: 0 auto;               /* centers the wrapper horizontally */
+  padding: 40px 20px 60px;      /* space around content */
+}
+
+/* ── Magic wand decoration above header ── */
+.magic-icon {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 12px;
+  animation: float 3s ease-in-out infinite; /* gentle floating animation */
+}
+
+/* ── Floating animation keyframes ── */
+@keyframes float {
+  0%   { transform: translateY(0px); }    /* start position */
+  50%  { transform: translateY(-10px); }  /* float up */
+  100% { transform: translateY(0px); }    /* back to start */
+}
+
+/* ── Header section ── */
+header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 40px 24px;
+
+  /* glass-like card effect */
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 24px;
+
+  /* golden glow around the header card */
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.15),
+              inset 0 0 40px rgba(106, 13, 173, 0.1);
+}
+
+/* ── Main title ── */
+header h1 {
+  font-family: 'Cinzel Decorative', cursive; /* grand Disney-style font */
+  font-size: clamp(20px, 4vw, 32px);  /* scales with screen size */
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 16px;
+
+  /* shimmering gold gradient text */
+  background: linear-gradient(135deg, #FFD700, #FFF5B0, #FFD700, #C9972B);
+  -webkit-background-clip: text;      /* clips gradient to text shape */
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Date subheading ── */
+header h2 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(14px, 3vw, 20px);  /* responsive font size */
+  color: var(--pink);                 /* fairy pink */
+  letter-spacing: 4px;                /* spaced out letters */
+}
+
+/* ── Description section ── */
+.description {
+  text-align: center;
+  padding: 28px 24px;
+  margin-bottom: 32px;
+
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 105, 180, 0.2); /* pink border */
+  border-radius: 20px;
+}
+
+.description p {
+  font-size: clamp(14px, 2.5vw, 17px); /* responsive font size */
+  line-height: 1.9;                     /* comfortable line spacing */
+  color: rgba(255, 253, 244, 0.85);     /* slightly soft white */
+  font-style: italic;                   /* elegant italic style */
+}
+
+/* ── RSVP Form section ── */
+.rsvp-section {
+  padding: 36px 28px;
+  margin-bottom: 28px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.4s ease; /* smooth transparency transition */
+}
+
+/* ── Form heading ── */
+.rsvp-section h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(16px, 3vw, 22px);
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 2px;
+}
+
+/* ── Each form row (label + input together) ── */
+.form-group {
+  margin-bottom: 20px; /* space between each field */
+}
+
+/* ── Labels above each input ── */
+.form-group label {
+  display: block;          /* label sits on its own line */
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase; /* ALL CAPS label style */
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+/* ── Text inputs and dropdowns ── */
+.form-group input,
+.form-group select {
+  width: 100%;             /* full width of the form */
+  padding: 14px 18px;      /* comfortable inner space */
+  font-family: 'Lora', serif;
+  font-size: 15px;
+
+  background: rgba(255, 255, 255, 0.07); /* semi-transparent dark field */
+  color: var(--white);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  outline: none;           /* removes default browser focus ring */
+  transition: border-color 0.3s, box-shadow 0.3s; /* smooth focus effect */
+}
+
+/* ── Input focused state — golden glow when clicked ── */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); /* golden glow */
+}
+
+/* ── Dropdown option colors ── */
+.form-group select option {
+  background: var(--royal); /* dark blue dropdown background */
+  color: var(--white);
+}
+
+/* ── Submit button ── */
+.submit-btn {
+  width: 100%;             /* stretches full width */
+  padding: 16px;
+  margin-top: 8px;
+
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--midnight);  /* dark text on gold button */
+
+  /* shiny gold gradient */
+  background: linear-gradient(135deg, #FFD700, #FFF5B0, #C9972B);
+  border: none;
+  border-radius: 50px;     /* pill shape */
+  cursor: pointer;         /* hand cursor on hover */
+
+  transition: transform 0.2s, box-shadow 0.2s; /* smooth hover effect */
+}
+
+/* ── Button hover — lifts up with glow ── */
+.submit-btn:hover {
+  transform: translateY(-3px);              /* button floats up */
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.5); /* golden glow below */
+}
+
+/* ── Button active — press down effect ── */
+.submit-btn:active {
+  transform: translateY(0px); /* snaps back when clicked */
+}
+
+/* ── Confirmation message — HIDDEN by default ── */
+#confirmation-message {
+  display: none;           /* hidden until JavaScript shows it */
+  text-align: center;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 20px;
+
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: var(--gold);
+  line-height: 1.8;
+
+  /* sparkle glow around the confirmation box */
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+
+  animation: fadeIn 0.6s ease; /* smooth fade in when shown */
+}
+
+/* ── Fade in animation for confirmation message ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); } /* starts invisible, above */
+  to   { opacity: 1; transform: translateY(0); }     /* fades in, moves down */
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: rgba(255, 253, 244, 0.35); /* very faint text */
+  letter-spacing: 1px;
+}
+
+/* ── Mobile responsiveness — adjusts for small screens ── */
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 24px 16px 48px; /* less padding on mobile */
+  }
+
+  header {
+    padding: 28px 16px;      /* tighter header padding */
+  }
+
+  .rsvp-section {
+    padding: 24px 16px;      /* tighter form padding */
+  }
+}

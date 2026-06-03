@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIF Gala RSVP</title>
+
+  <!-- Import Disney-style fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Link to our CSS file for styling -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Magic wand icon at the top -->
+    <div class="magic-icon">🪄✨</div>
+
+    <!-- ── HEADER SECTION ── -->
+    <header>
+      <!-- Main invitation title -->
+      <h1>You're Invited to the GIF Gala: Where Memes Come to Life!</h1>
+      <!-- Event date as subheading -->
+      <h2>✦ 7/21/23 ✦</h2>
+    </header>
+
+    <!-- ── DESCRIPTION SECTION ── -->
+    <section class="description">
+      <p>
+        Get ready for the most legendary night of the year! The GIF Gala is
+        a one-of-a-kind celebration where you dress as your favorite GIF or
+        meme and bring the internet to life. Expect epic music, hilarious
+        costumes, and memories that will loop forever. Don't miss it!
+      </p>
+    </section>
+
+    <!-- ── CONFIRMATION MESSAGE — shown above the RSVP form ── -->
+    <section>
+      <!-- Hidden by default — JavaScript will show it after submit -->
+      <div id="confirmation-message"></div>
+    </section>
+
+    <!-- ── RSVP FORM SECTION ── -->
+    <section class="rsvp-section">
+      <h3>✦ RSVP Now ✦</h3>
+
+      <!-- Form calls rsvpSubmit() when submitted -->
+      <form onsubmit="rsvpSubmit(event)">
+
+        <!-- Email field -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- Attendance dropdown -->
+        <div class="form-group">
+          <label for="attendance">Will you attend?</label>
+          <select id="attendance" required>
+            <option value="">-- Select an option --</option>
+            <option value="yes">Yes, I'll be there! 🎉</option>
+            <option value="no">No, I can't make it 😢</option>
+          </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="submit-btn">Send My RSVP ✨</button>
+
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>✦ See you under the stars ✦</p>
+    </footer>
+
+  </div>
+
+  <!-- Link to JavaScript file — placed at bottom so page loads first -->
+  <script src="script.js"></script>
+
+</body>
+</html>
