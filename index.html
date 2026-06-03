@@ -85,6 +85,13 @@
 
   </div>
 
+  <!-- ── Firebase SDK — loaded before our script ──────────────────────
+       Using the compat build so it works in a plain HTML file
+       without needing npm or a bundler.
+  ──────────────────────────────────────────────────────────────── -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
   <!-- Link to JavaScript file — placed at bottom so page loads first -->
   <script src="script.js"></script>
 
